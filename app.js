@@ -1,5 +1,6 @@
 const express = require("express");
 const morgan = require("morgan");
+const { db } = require("./database/index");
 
 const app = express();
 
@@ -10,6 +11,11 @@ app.get("/", (req, res) => {
 });
 
 const PORT = 8080;
-app.listen(PORT, () => {
-  console.log(`🤘 Server is listening on port ${PORT}`);
-});
+const runApp = async () => {
+  await db.sync();
+  console.log("🐘 Connected to Postgres database");
+  app.listen(PORT, () => {
+    console.log(`🤘 Server is listening on port ${PORT}`);
+  });
+};
+runApp();
