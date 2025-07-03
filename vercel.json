@@ -9,12 +9,6 @@
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "app.js"
-    }
-  ],
-  "headers": [
-    {
-      "source": "/(.*)",
       "headers": [
         {
           "key": "Access-Control-Allow-Origin",
@@ -25,7 +19,8 @@
           "value": "GET, POST, PUT, PATCH, DELETE, OPTIONS"
         },
         { "key": "Access-Control-Allow-Credentials", "value": "true" }
-      ]
+      ],
+      "dest": "app.js"
     }
   ]
 }
