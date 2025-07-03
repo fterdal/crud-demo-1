@@ -10,6 +10,12 @@ app.use(morgan("dev"));
 
 // Allows requests from all hostname
 app.use(cors());
+app.use(
+  cors({
+    origin: "https://crud-demo-frontend.vercel.app",
+    credentials: true,
+  })
+);
 
 app.get("/", (req, res) => {
   res.send("HELLO WORLD");

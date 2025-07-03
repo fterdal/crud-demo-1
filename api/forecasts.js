@@ -6,7 +6,6 @@ const { Forecast } = require("../database");
 router.get("/", async (req, res) => {
   try {
     const forecasts = await Forecast.findAll();
-    console.log("forecasts", forecasts);
     res.send(forecasts);
   } catch (err) {
     console.error(err);
