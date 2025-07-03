@@ -9,7 +9,6 @@ const app = express();
 app.use(morgan("dev"));
 
 // Allows requests from all hostname
-app.use(cors());
 app.use(
   cors({
     origin: "https://crud-demo-frontend.vercel.app",
